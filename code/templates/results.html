@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>RESULTADOS</h2>
+        <h4>Caras:</h4>
+        {% for face in faces %}
+            <p>Id: {{face.face_id}}</p>
+            <p>Ancho y Alto: {{face.face_rectangle.width}} {{face.face_rectangle.height}}</p>
+            <p>Coordenadas Arriba e Izquierda: {{face.face_rectangle.top}} {{face.face_rectangle.left}}</p>
+            <p>Edad: {{face.face_attributes.age}}</p>
+        {% endfor %}
+
+        <h4>Emociones:</h4>
+        {% for emotion in emotions %}
+            <p>Emoción: {{emotion}}</p>
+        {% endfor %}
+
+        <h4>Descripción:</h4>
+        <p>{{description}}</p>
+
+        <h4>Etiquetas:</h4>
+        {% for tag in tags %}
+            <p>{{tag.name}}</p>
+        {% endfor %}
+
+        <h4>Color:</h4>
+        <p>AccentColor: {{accentColor}}</p>
+    </div>
+
+    
+    <div class="container">
+        <div class="container-fluid align-right mt-5 mb-5">
+            <a class="btn btn-secondary" href="/">Inicio</a>
+        </div>
+    </div>    
+{% endblock %}
+
